@@ -4,6 +4,7 @@ import { AdminRoute } from '../modules/admin/admin.route';
 import { AuthRoute } from '../modules/auth/auth.route';
 import { BookRoute } from '../modules/book/book.route';
 import { CategoryRoute } from '../modules/category/category.route';
+import { BorrowRoute } from '../modules/borrow/borrow.route';
 
 const router = Router();
 
@@ -27,7 +28,11 @@ const moduleRoutes = [
   },
   {
     path: '/category',
-    route: CategoryRoute
+    route: CategoryRoute,
+  },
+  {
+    path: '/borrowings',
+    route: BorrowRoute
   },
 ];
 
