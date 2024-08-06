@@ -10,7 +10,7 @@ const createBook = async (bookData: TBook) => {
 
 // Get all books
 const getAllBooks = async (): Promise<TBook[]> => {
-  const result = await Book.find();
+  const result = await Book.find().populate('createdBy');
   return result;
 };
 

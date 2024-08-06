@@ -2,11 +2,16 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { BookServices } from './book.service';
+import { User } from '../user/user.model';
 
 // Create
 const createBook = catchAsync(async (req, res) => {
   const bookData = req.body;
+  const userId = req?.user?.userId;
+  const user = await User.findOne({ id: userId }, { _id: 1 });
+  bookData.createdBy = user?._id;
   const result = await BookServices.createBook(bookData);
+  // const result = 'none';
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,

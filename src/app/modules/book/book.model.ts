@@ -9,6 +9,10 @@ const bookSchema = new Schema<TBook>({
   shortDescription: { type: String, required: true },
   rating: { type: String, required: true },
   image: { type: String, required: true },
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
   isDeleted: { type: Boolean, default: false },
 });
 

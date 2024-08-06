@@ -1,3 +1,5 @@
+import { Types } from 'mongoose';
+
 export type TBook = {
   name: string;
   authorName: string;
@@ -6,5 +8,6 @@ export type TBook = {
   shortDescription: string;
   rating: string;
   image: string;
-  isDeleted: boolean
+  createdBy: Types.ObjectId;
+  isDeleted: boolean;
 };
